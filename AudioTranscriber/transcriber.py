@@ -8,20 +8,20 @@ from languages import Language
 ### Attributes ###
 ##################
 # Folder setup
-cache_folder = os.path.join('.', 'VoiceRecognizer', 'Cache')
-result_folder = os.path.join('.', 'VoiceRecognizer', 'Results')
+cache_folder = os.path.join('.', 'AudioTranscriber', 'Cache')
+result_folder = os.path.join('.', 'AudioTranscriber', 'Results')
 if not os.path.exists(cache_folder):
     os.makedirs(cache_folder)
 if not os.path.exists(result_folder):
     os.makedirs(result_folder)
 
 # Convert mp3 file to wav and load the audio file
-audio_folder = os.path.join('.', 'VoiceRecognizer', 'Audio')
+audio_folder = os.path.join('.', 'AudioTranscriber', 'Audio')
 file_start_name = input("\nWhat is the name of the mp3 file that you want to transcribe? \nNB: Make sure the audio file is in the *Audio* folder.\n\nType in here (exlude the file ending [.mp3]): ")
 sound = AudioSegment.from_mp3(os.path.join(audio_folder, f"{file_start_name}.mp3"))
 print("\n[1/6] Audio file loaded")
 
-# Export the file to the VoiceRecognizer/Cache folder
+# Export the file to the AudioTranscriber/Cache folder
 file_path = os.path.join(cache_folder, 'transcript.wav')
 sound.export(file_path, format="wav")
 audio = AudioSegment.from_wav(file_path)

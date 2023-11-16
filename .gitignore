@@ -1,6 +1,6 @@
 
 .DS_Store
-VoiceRecognizer/Audio/*
-VoiceRecognizer/Cache/*
-VoiceRecognizer/Results/*
+AudioTranscriber/Audio/*
+AudioTranscriber/Cache/*
+AudioTranscriber/Results/*
 *.pyc
