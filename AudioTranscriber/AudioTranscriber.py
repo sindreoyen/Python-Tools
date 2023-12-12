@@ -17,7 +17,14 @@ if not os.path.exists(result_folder):
 
 # Convert mp3 file to wav and load the audio file
 audio_folder = os.path.join('.', 'AudioTranscriber', 'Audio')
-file_start_name = input("\nWhat is the name of the mp3 file that you want to transcribe? \nNB: Make sure the audio file is in the *Audio* folder.\n\nType in here (exlude the file ending [.mp3]): ")
+# Print the existing audio files enumerated
+print("\nExisting audio files:")
+for i, file in enumerate(os.listdir(audio_folder)):
+    print(f"{i}: {file}")
+# Ask the user to select a file
+file_index = int(input("\nSelect a file (write only the number as listed above): "))
+file_start_name = os.listdir(audio_folder)[file_index].split('.')[0]
+
 sound = AudioSegment.from_mp3(os.path.join(audio_folder, f"{file_start_name}.mp3"))
 print("\n[1/6] Audio file loaded")
 
@@ -31,7 +38,7 @@ print("[2/6] Audio file exported to cache folder")
 # Split the audio file into parts
 length_of_audio = len(audio)
 part_length = length_of_audio // 5 # Change this number to change the number of parts, for short audio files, use 1
-parts = [audio[i:i + part_length] for i in range(0, length_of_audio, part_length - 1)]
+parts = [audio[i:i + part_length] for i in range(0, length_of_audio, part_length)]
 print("[3/6] Audio file split into parts")
 
 #########################
