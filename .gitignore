@@ -4,3 +4,4 @@ AudioTranscriber/Audio/*
 AudioTranscriber/Cache/*
 AudioTranscriber/Results/*
 *.pyc
+.venv/*
